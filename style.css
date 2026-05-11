@@ -1,23 +1,246 @@
-body {
-  font-family: Arial;
-  background: #f4f4f4;
-  padding: 40px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #eee;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background: #0f3460;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+select:hover {
+  background: #1a5276;
+}
+
+.progress-badge {
+  background: #e94560;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.score-board {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.score-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s;
+}
+
+.score-item:hover {
+  transform: scale(1.05);
+}
+
+.score-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.score-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.score-percent {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.correct-score .score-value { color: #2ecc71; }
+.wrong-score .score-value { color: #e74c3c; }
+.total-score .score-value { color: #f39c12; }
 
 .card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 550px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s;
 }
 
-input {
+.card:hover {
+  box-shadow: 0 12px 40px rgba(233, 69, 96, 0.15);
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: #f8f8f8;
+}
+
+input[type="text"] {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #e94560;
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
 }
 
 button {
-  margin-top: 10px;
-  padding: 10px 20px;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.15s, background 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#submitBtn {
+  background: #2ecc71;
+  color: #fff;
+}
+
+#submitBtn:hover {
+  background: #27ae60;
+}
+
+#nextBtn {
+  background: #3498db;
+  color: #fff;
+}
+
+#nextBtn:hover {
+  background: #2980b9;
+}
+
+#resetBtn {
+  background: #e74c3c;
+  color: #fff;
+}
+
+#resetBtn:hover {
+  background: #c0392b;
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  min-height: 24px;
+  padding: 8px 0;
+  transition: opacity 0.3s;
+}
+
+.result-correct {
+  color: #2ecc71;
+}
+
+.result-wrong {
+  color: #e74c3c;
+}
+
+.progress-bar-container {
+  width: 100%;
+  max-width: 550px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.shake {
+  animation: shake 0.3s ease;
+}
+
+.pop {
+  animation: pop 0.3s ease;
 }

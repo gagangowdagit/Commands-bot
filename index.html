@@ -6,23 +6,50 @@
 </head>
 <body>
 
-  <h1>DevOps Practice App</h1>
+  <h1>🚀 DevOps Practice App</h1>
 
-  <select id="topicSelect">
-    <option value="docker">Docker</option>
-    <option value="github">GitHub</option>
-    <option value="kubernetes">Kubernetes</option>
-  </select>
+  <div class="top-bar">
+    <select id="topicSelect">
+      <option value="docker">🐳 Docker</option>
+      <option value="github">🐙 GitHub</option>
+      <option value="kubernetes">☸️ Kubernetes</option>
+    </select>
+    <span id="progress" class="progress-badge">Q 1 / 2</span>
+  </div>
+
+  <div class="score-board">
+    <div class="score-item correct-score">
+      <span class="score-label">✅ Correct</span>
+      <span id="correctCount" class="score-value">0</span>
+      <span id="correctPercent" class="score-percent">(0%)</span>
+    </div>
+    <div class="score-item wrong-score">
+      <span class="score-label">❌ Wrong</span>
+      <span id="wrongCount" class="score-value">0</span>
+      <span id="wrongPercent" class="score-percent">(0%)</span>
+    </div>
+    <div class="score-item total-score">
+      <span class="score-label">📊 Total</span>
+      <span id="totalCount" class="score-value">0</span>
+    </div>
+  </div>
 
   <div class="card">
     <h2 id="question">Question appears here</h2>
 
-    <input type="text" id="answerInput" placeholder="Type your answer">
+    <input type="text" id="answerInput" placeholder="Type your answer..." autocomplete="off">
 
-    <button onclick="checkAnswer()">Submit</button>
-    <button onclick="nextQuestion()">Next</button>
+    <div class="btn-group">
+      <button id="submitBtn" onclick="checkAnswer()">Submit</button>
+      <button id="nextBtn" onclick="nextQuestion()">Next →</button>
+      <button id="resetBtn" onclick="resetScore()">Reset Score</button>
+    </div>
 
     <p id="result"></p>
+  </div>
+
+  <div class="progress-bar-container">
+    <div id="progressBar" class="progress-bar"></div>
   </div>
 
   <script src="questions.js"></script>
