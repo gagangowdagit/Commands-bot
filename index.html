@@ -52,6 +52,45 @@
     <div id="progressBar" class="progress-bar"></div>
   </div>
 
+  <!-- Learning Growth Dashboard -->
+  <div class="dashboard">
+    <div class="dashboard-header">
+      <h2>📈 Learning Growth Dashboard</h2>
+      <div class="dashboard-actions">
+        <button id="saveSessionBtn" onclick="saveSession()">💾 Save Session</button>
+        <button id="resetChartBtn" onclick="resetChart()">🗑️ Reset Chart</button>
+      </div>
+    </div>
+
+    <div class="chart-toggle">
+      <button class="toggle-btn active" id="barToggle" onclick="setChartType('bar')">Bar Graph</button>
+      <button class="toggle-btn" id="lineToggle" onclick="setChartType('line')">Trend Line</button>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="growthChart" width="700" height="300"></canvas>
+    </div>
+
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <span class="stat-label">Total Sessions</span>
+        <span id="totalSessions" class="stat-value">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Best Score</span>
+        <span id="bestScore" class="stat-value">0%</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Average Score</span>
+        <span id="avgScore" class="stat-value">0%</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Current Streak</span>
+        <span id="streak" class="stat-value">0 days</span>
+      </div>
+    </div>
+  </div>
+
   <script src="questions.js"></script>
   <script src="script.js"></script>
 
