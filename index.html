@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DevOps Practice App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>DevOps Practice App</h1>
+
+  <select id="topicSelect">
+    <option value="docker">Docker</option>
+    <option value="github">GitHub</option>
+    <option value="kubernetes">Kubernetes</option>
+  </select>
+
+  <div class="card">
+    <h2 id="question">Question appears here</h2>
+
+    <input type="text" id="answerInput" placeholder="Type your answer">
+
+    <button onclick="checkAnswer()">Submit</button>
+    <button onclick="nextQuestion()">Next</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
